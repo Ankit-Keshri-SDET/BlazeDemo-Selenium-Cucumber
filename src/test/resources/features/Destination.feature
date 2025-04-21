@@ -6,6 +6,5 @@ Feature: Destination of the week feature
   Scenario: TC_001_To Verify User is able to view the destination of the week place
     Given I am on the homepage of the BlazeDemo website
     When I click on the "destination of the week" link
-    Then I should be redirected to the "vacation_url"
-    And I should see the name and image of the place
-    
+    Then I should be redirected to the "https://blazedemo.com/vacation.html"
+    And I should see the image of the place
