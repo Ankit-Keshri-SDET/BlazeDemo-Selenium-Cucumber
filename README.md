@@ -3,12 +3,19 @@ An Flight Website - Blazedemo Test Automation Framework based on Cucumber BDD an
 
 FEATURES : - 
 
-Follows Gherkin good practices
-Uses Cucumber efficiently to support BDD
-Follows good programming and automation practices
-Supports multiple runners – JUnit, TestNG, CLI
-Supports parallel – JUnit, TestNG, CLI
-Uses Dependency Injection framework
-Captures Screenshot on scenario failure
-Supports command line execution using Maven
-Supports CI/CD integration
+1. Follows Gherkin good practices
+2. Uses Cucumber efficiently to support BDD
+3. Follows good programming and automation practices
+4. Supports multiple runners – JUnit, TestNG, CLI
+5. Supports parallel – JUnit, TestNG, CLI
+6. Uses Dependency Injection framework
+7. Captures Screenshot on scenario failure
+8. Supports command line execution using Maven
+9. Supports CI/CD integration
+
+
+
+
+
+
+
