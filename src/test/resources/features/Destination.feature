@@ -8,3 +8,4 @@ Feature: Destination of the week feature
     When I click on the "destination of the week" link
     Then I should be redirected to the "https://blazedemo.com/vacation.html"
     And I should see the image of the place
+
