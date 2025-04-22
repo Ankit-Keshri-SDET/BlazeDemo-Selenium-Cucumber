@@ -14,6 +14,10 @@ FEATURES : -
 9. Supports CI/CD integration
 
 
+FRAMEWORK ARCHITECTURE 
+
+![image](https://github.com/user-attachments/assets/225f0656-3200-43af-9170-0711bb677c54)
+
 
 
 
