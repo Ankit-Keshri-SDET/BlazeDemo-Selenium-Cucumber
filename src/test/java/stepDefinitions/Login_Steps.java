@@ -64,6 +64,6 @@ public class Login_Steps {
     @Then("{string} should be displayed")
     public void should_be_displayed(String successMessage) {
         String txtMessage = driver.findElement(By.xpath("//div[contains(text(),'Page Expired')]")).getText();
-        Assert.assertEquals(txtMessage, successMessage, "Message mismatched .....");
+        Assert.assertEquals(txtMessage, successMessage, "Message mismatched ......");
     }
 }
