@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
 import java.time.Duration;
@@ -17,8 +18,16 @@ public class Destination_Steps {
 
     @Given("I am on the homepage of the BlazeDemo website")
     public void i_am_on_the_homepage_of_the_blaze_demo_website() {
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new"); // Use "new" for latest headless mode
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+
+
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
