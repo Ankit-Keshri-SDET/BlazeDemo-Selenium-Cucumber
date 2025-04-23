@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features = "src/test/resources/features/Destination.feature",
+        features = "src/test/resources/features",
         glue = "stepDefinitions",
         plugin = {"html:target/cucumber-reports/cucumber.html"
                 , "json:target/cucumber-dry.json", "pretty:target/cucumber-pretty-dry.txt"},
