@@ -19,10 +19,13 @@ public class Login_Steps {
     public void user_am_on_the_login_page() {
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new"); // Use "new" for latest headless mode
+        options.addArguments("--headless=new"); // use 'new' headless for latest versions
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--window-size=1920,1080");
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);

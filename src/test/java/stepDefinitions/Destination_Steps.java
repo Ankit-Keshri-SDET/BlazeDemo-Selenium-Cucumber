@@ -20,10 +20,13 @@ public class Destination_Steps {
     public void i_am_on_the_homepage_of_the_blaze_demo_website() {
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new"); // Use "new" for latest headless mode
+        options.addArguments("--headless=new"); // use 'new' headless for latest versions
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--window-size=1920,1080");
 
 
         WebDriverManager.chromedriver().setup();
