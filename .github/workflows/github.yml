@@ -3,7 +3,7 @@ name: BlazeDemo-Selenium-Cucumber-CI
 on:
   push:
     branches:
-      - test-branch
+      - main
   workflow_dispatch:
 
 jobs:

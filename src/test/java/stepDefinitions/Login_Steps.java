@@ -17,18 +17,8 @@ public class Login_Steps {
 
     @Given("User am on the Login page")
     public void user_am_on_the_login_page() {
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new"); // use 'new' headless for latest versions
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--window-size=1920,1080");
-
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
@@ -58,12 +48,13 @@ public class Login_Steps {
         String actualUrl = driver.getCurrentUrl();
         String expectedUrl = "https://blazedemo.com/login";
         Assert.assertEquals(actualUrl, expectedUrl);
-
     }
 
     @Then("{string} should be displayed")
     public void should_be_displayed(String successMessage) {
         String txtMessage = driver.findElement(By.xpath("//div[contains(text(),'Page Expired')]")).getText();
         Assert.assertEquals(txtMessage, successMessage, "Message mismatched ......");
+
+        driver.quit();
     }
 }

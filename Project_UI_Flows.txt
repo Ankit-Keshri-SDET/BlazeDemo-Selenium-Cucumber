@@ -10,3 +10,17 @@ UI Flows to be tested
 8. Forgot Password
 
 
+// Codes for later practise
+
+ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new"); // use 'new' headless for latest versions
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--window-size=1920,1080");
+
+
+
+
