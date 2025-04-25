@@ -67,17 +67,25 @@
                 <version>5.8.1</version>
                 <executions>
                     <execution>
-                        <id>generate-cucumber-report</id>
-                        <phase>verify</phase>
+                        <id>execution</id>
+                        <phase>test</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>BlazeDemo Cucumber Selenium</projectName>
+                            <projectName>Selenium-Cucumber-Ecomm-Project</projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <inputDirectory>${project.build.directory}/</inputDirectory>
                             <jsonFiles>
-                                <param>target/cucumber-reports/Cucumber.json</param>
+                                <param>**/*.json</param>
                             </jsonFiles>
-                            <outputDirectory>target/cucumber-reports</outputDirectory>
+                            <classificationDirectory>${project.build.directory}/</classificationDirectory>
+                            <classificationFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>sample.properties</param>
+                                <param>other.properties</param>
+                            </classificationFiles>
+                            <checkBuildResult>false</checkBuildResult>
                         </configuration>
                     </execution>
                 </executions>

@@ -1,30 +1,18 @@
 package stepDefinitions;
 
+import factory.DriverFactory;
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
-import java.time.Duration;
-
 public class Destination_Steps {
-
     private WebDriver driver;
 
     @Given("I am on the homepage of the BlazeDemo website")
     public void i_am_on_the_homepage_of_the_blaze_demo_website() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
+        driver = DriverFactory.initializeDriver();
         driver.get("https://blazedemo.com/");
     }
 

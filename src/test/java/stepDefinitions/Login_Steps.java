@@ -1,29 +1,17 @@
 package stepDefinitions;
 
+import factory.DriverFactory;
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
-import java.time.Duration;
-
 public class Login_Steps {
-
     private WebDriver driver;
 
     @Given("User am on the Login page")
-    public void user_am_on_the_login_page() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
+    public void user_am_on_the_login_page(){
+        driver = DriverFactory.initializeDriver();
         driver.get("https://blazedemo.com/login");
     }
 
