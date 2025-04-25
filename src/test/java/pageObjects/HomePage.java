@@ -16,13 +16,6 @@ public class HomePage extends BasePage{
     private WebElement firstText;
     @FindBy(css="a[href*='vacation']")
     private WebElement destinationLink;
-    @FindBy(xpath="//a[@href='index.php']")
-    private WebElement logoLink;
-    @FindBy(xpath="//a[@href='index.php']")
-    private WebElement logoLink;
-    @FindBy(xpath="//a[@href='index.php']")
-    private WebElement logoLink;
-
 
     public HomePage(WebDriver driver) {
         super(driver);
