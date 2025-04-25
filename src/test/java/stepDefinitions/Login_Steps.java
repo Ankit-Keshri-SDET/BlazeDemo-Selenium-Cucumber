@@ -5,34 +5,37 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import pageObjects.LoginPage;
 
 public class Login_Steps {
     private WebDriver driver;
+    private LoginPage lp;
 
     @Given("User am on the Login page")
-    public void user_am_on_the_login_page(){
-        driver = DriverFactory.initializeDriver();
-        driver.get("https://blazedemo.com/login");
+    public void user_am_on_the_login_page() {
+        driver = DriverFactory.getDriver();
+        lp = new LoginPage(driver);
+        lp.load("https://blazedemo.com/login");
     }
 
-    @When("User enter my {string} and {string}")
+    @When("User enter email and password as {string} and {string}")
     public void user_enter_my_and(String username, String password) {
-        driver.findElement(By.id("email")).sendKeys(username);
-        driver.findElement(By.id("password")).sendKeys(username);
+        lp.enterUsername(username);
+        lp.enterPassword(password);
     }
 
     @When("User click on Remember Me checkbox")
     public void user_click_on_remember_me_checkbox() {
-        driver.findElement(By.xpath("//input[@type='checkbox']")).click();
+        lp.clickOnCheckbox();
     }
 
     @When("User click on Login button")
     public void user_click_on_login_button() {
-        driver.findElement(By.cssSelector("[type='submit']")).click();
+        lp.clickOnLoginBtn();
     }
 
-    @Then("User should be navigated to the Home page")
-    public void user_should_be_navigated_to_the_home_page() {
+    @Then("User should be navigated to the Account page")
+    public void user_should_be_navigated_to_the_account_page() {
         String actualUrl = driver.getCurrentUrl();
         String expectedUrl = "https://blazedemo.com/login";
         Assert.assertEquals(actualUrl, expectedUrl);
@@ -42,7 +45,5 @@ public class Login_Steps {
     public void should_be_displayed(String successMessage) {
         String txtMessage = driver.findElement(By.xpath("//div[contains(text(),'Page Expired')]")).getText();
         Assert.assertEquals(txtMessage, successMessage, "Message mismatched ......");
-
-        driver.quit();
     }
 }

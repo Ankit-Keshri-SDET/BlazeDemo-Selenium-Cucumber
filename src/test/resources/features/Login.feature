@@ -5,10 +5,10 @@ Feature: Login Feature
 
   Scenario Outline: TC_001_To Verify User is able to login
     Given User am on the Login page
-    When User enter my "<username>" and "<password>"
+    When User enter email and password as "<username>" and "<password>"
     And User click on Remember Me checkbox
     And User click on Login button
-    Then User should be navigated to the Home page
+    Then User should be navigated to the Account page
     And "<Success_Message>" should be displayed
 
 

@@ -1,24 +1,41 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
-    @FindBy(xpath="//a[@href='index.php']")
+    @FindBy(xpath = "//a[@href='index.php']")
     private WebElement logoLink;
-    @FindBy(xpath="//a[@href='home']")
-    private WebElement loginPageLink;
-    @FindBy(tagName="h1")
+
+    @FindBy(tagName = "h1")
     private WebElement headerText;
-    @FindBy(xpath="//p[contains(text(),'Blaze')]")
+    @FindBy(xpath = "//p[contains(text(),'Blaze')]")
     private WebElement firstText;
-    @FindBy(css="a[href*='vacation']")
+    @FindBy(css = "a[href*='vacation']")
     private WebElement destinationLink;
+    @FindBy(xpath = "//h2[contains(text(),'departure')]")
+    private WebElement departureHeading;
+    @FindBy(xpath = "//h2[contains(text(),'destination')]")
+    private WebElement destinationHeading;
+    @FindBy(name = "fromPort")
+    private WebElement fromPort;
+    @FindBy(name = "toPort")
+    private WebElement toPort;
+    @FindBy(css = "input[type='submit']")
+    private WebElement findFlightBtn;
+
 
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+    public void clickOnDestinationLink() {
+        wait.until(ExpectedConditions.elementToBeClickable(destinationLink)).click();
     }
 
 
