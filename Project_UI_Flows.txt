@@ -5,7 +5,7 @@ UI Flows to be tested
 3. E2E Flight Book - Basic Flow
 4. Flight Book using Cheapest Flight from A to B
 5. Validate the shortest route or sort by price and go back to home
-6. Best stepDefinitions.Destination of the week
+6. Best Destination of the week
 7. Data Driven Testing Using DataTable
 8. Forgot Password
 
