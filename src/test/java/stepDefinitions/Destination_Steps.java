@@ -13,12 +13,12 @@ public class Destination_Steps {
     private WebDriver driver;
     private HomePage hp;
 
-    @Given("I am on the homepage of the BlazeDemo website")
-    public void i_am_on_the_homepage_of_the_blaze_demo_website() {
-        driver = DriverFactory.getDriver();
-        hp = new HomePage(driver);
-        hp.load("https://blazedemo.com/");
-    }
+//    @Given("I am on the homepage of the BlazeDemo website")
+//    public void i_am_on_the_homepage_of_the_blaze_demo_website() {
+//        driver = DriverFactory.getDriver();
+//        hp = new HomePage(driver);
+//        hp.load("https://blazedemo.com/");
+//    }
 
     @When("I click on the {string} link")
     public void i_click_on_the_link(String string) {

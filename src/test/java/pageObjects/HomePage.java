@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends BasePage {
 
@@ -38,5 +38,19 @@ public class HomePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(destinationLink)).click();
     }
 
+    public void clickOnFindFlightsButton() {
+        findFlightBtn.click();
+    }
 
+    public void selectFromPort(String src) {
+        wait.until(ExpectedConditions.elementToBeClickable(fromPort));
+        Select sel = new Select(fromPort);
+        sel.selectByVisibleText(src);
+    }
+
+    public void selectToPort(String dest) {
+        wait.until(ExpectedConditions.elementToBeClickable(toPort));
+        Select sel = new Select(toPort);
+        sel.selectByVisibleText(dest);
+    }
 }

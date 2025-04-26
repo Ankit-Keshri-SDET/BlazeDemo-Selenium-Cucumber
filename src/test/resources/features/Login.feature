@@ -11,7 +11,6 @@ Feature: Login Feature
     Then User should be navigated to the Account page
     And "<Success_Message>" should be displayed
 
-
     Examples:
       | username       | password  | Success_Message |
       | xyaz@gmail.com | random123 | Page Expired    |
