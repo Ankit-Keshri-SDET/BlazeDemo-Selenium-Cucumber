@@ -10,6 +10,9 @@ import pageObjects.HomePage;
 import pageObjects.PurchasePage;
 import pageObjects.ReservePage;
 
+import java.util.List;
+import java.util.Map;
+
 public class Flight_Booking_E2E_Steps {
     private WebDriver driver;
     private HomePage hp;
@@ -55,7 +58,17 @@ public class Flight_Booking_E2E_Steps {
     }
 
     @When("I provide personal details")
-    public void i_provide_personal_details(io.cucumber.datatable.DataTable dataTable) {
+    public void i_provide_personal_details(List<Map<String, String>> billingDetails) {
+        pp.enterName(billingDetails.get(0).get("name"));
+        pp.enterAddress(billingDetails.get(0).get("address"));
+        pp.enterCity(billingDetails.get(0).get("city"));
+        pp.enterState(billingDetails.get(0).get("state"));
+        pp.enterZipCode(billingDetails.get(0).get("zipCode"));
+        pp.selectCardType(billingDetails.get(0).get("cardType"));
+        pp.enterCreditCardNumber(billingDetails.get(0).get("creditCardNumber"));
+        pp.enterCreditCardMonth(billingDetails.get(0).get("month"));
+        pp.enterCreditCardYear(billingDetails.get(0).get("year"));
+        pp.enterNameOnCard(billingDetails.get(0).get("nameOnCard"));
     }
 
     @When("I click on Purchase Flight button")
@@ -69,7 +82,7 @@ public class Flight_Booking_E2E_Steps {
         Assert.assertEquals(cp.getConfirmationText(), thankyouText);
     }
 
-    @Then("my flight details should be displayed")
+    @Then("My flight details should be displayed")
     public void my_flight_details_should_be_displayed() {
         String pID = cp.getPurchaseID();
         System.out.println(pID);
