@@ -7,8 +7,6 @@ import org.testng.Assert;
 import pageObjects.AccountPage;
 import utils.ConfigLoader;
 
-import java.sql.Driver;
-
 public class AccountPage_Steps {
     private WebDriver driver = DriverFactory.getDriver();
 

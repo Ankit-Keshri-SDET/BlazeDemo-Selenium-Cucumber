@@ -9,8 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObjects.PurchasePage;
 
-import java.sql.Driver;
-
 public class PurchasePage_Steps {
     private WebDriver driver;
     private PurchasePage pp;
