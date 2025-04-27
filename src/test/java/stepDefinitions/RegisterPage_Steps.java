@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import contants.Endpoint;
 import factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -14,7 +15,7 @@ public class RegisterPage_Steps {
     public void i_am_on_the_register_page() {
         driver = DriverFactory.getDriver();
         rp = new RegisterPage(driver);
-        rp.load("/register");
+        rp.load(Endpoint.REGISTER.url);
     }
 
     @When("I enter my {string}, {string}, {string}")

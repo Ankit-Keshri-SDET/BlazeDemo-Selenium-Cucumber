@@ -8,7 +8,7 @@ Feature: Login Feature
     When User enter email and password as "<username>" and "<password>"
     And User click on Remember Me checkbox
     And User click on Login button
-    Then User should be navigated to the Account page
+    Then User should be navigated to the Account page of Login
     And "<Success_Message>" should be displayed
 
     Examples:

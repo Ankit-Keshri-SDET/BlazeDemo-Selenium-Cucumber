@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import contants.Endpoint;
 import factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -14,7 +15,7 @@ public class LoginPage_Steps {
     public void user_am_on_the_login_page() {
         driver = DriverFactory.getDriver();
         lp = new LoginPage(driver);
-        lp.load("/login");
+        lp.load(Endpoint.LOGIN.url);
     }
 
     @When("User enter email and password as {string} and {string}")

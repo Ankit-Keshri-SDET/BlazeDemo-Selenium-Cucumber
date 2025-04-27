@@ -5,7 +5,7 @@ Feature: Register to the Website to become a customer
     When I enter my "<name>", "<company>", "<email>"
     And I enter my "<password>", "<confirmPassword>"
     And I click on the Register button
-    Then User should be navigated to the Account page
+    Then User should be navigated to the Account page of Register
     And "<Success_Message>" should be displayed
 
     Examples:
