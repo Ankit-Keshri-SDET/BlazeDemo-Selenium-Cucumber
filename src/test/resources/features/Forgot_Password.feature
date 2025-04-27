@@ -5,7 +5,7 @@ Feature: Forgot Password Feature
     When I click on Forgot Your password link
     And I provide my "<emailAddress>"
     And I click on Send button
-    Then I should see a "<Recovery_Message>" on the page
+    Then "<Recovery_Message>" should be displayed
     And I should recover my password
 
     Examples:
