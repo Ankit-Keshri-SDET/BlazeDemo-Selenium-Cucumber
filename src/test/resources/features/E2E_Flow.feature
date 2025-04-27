@@ -26,7 +26,9 @@ Feature: E2E Flight Booking as Logged In user
       | TesterNew | Demo Address | London | UK    | 801919  |
     When I select the "<departure_city>", "<destination_city>" from dropdown
     And I click on the Find Flights button
-    When I choose the "<airline_name>" Airline flight for my booking
+#    When I choose the "<airline_name>" Airline flight for my booking
+    When I choose a flight for my booking
+    And I enter my personal details on the page
     And I provide card details
       | cardType | creditCardNumber | month | year | nameOnCard |
       | Visa     | 451678881111     | 11    | 2028 | Tester New |

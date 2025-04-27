@@ -17,7 +17,7 @@ public class RegisterPage extends BasePage {
     private WebElement passwordField;
     @FindBy(id = "password-confirm")
     private WebElement confirmPasswordField;
-    @FindBy(xpath = "//input[@value='Register']")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement registerButton;
 
     public RegisterPage(WebDriver driver) {

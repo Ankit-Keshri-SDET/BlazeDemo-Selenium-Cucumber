@@ -1,8 +1,9 @@
 package stepDefinitions;
 
+import domainObjects.CityDetails;
+import domainObjects.PurchaseDetails;
 import factory.DriverFactory;
 import io.cucumber.java.en.*;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObjects.ConfirmationPage;
@@ -10,15 +11,13 @@ import pageObjects.HomePage;
 import pageObjects.PurchasePage;
 import pageObjects.ReservePage;
 
-import java.util.List;
-import java.util.Map;
-
 public class Flight_Booking_E2E_Steps {
     private WebDriver driver;
     private HomePage hp;
     private ReservePage rp;
     private PurchasePage pp;
     private ConfirmationPage cp;
+    private PurchaseDetails purchaseDetails;
 
     @Given("I am on the homepage of the BlazeDemo website")
     public void i_am_on_the_homepage_of_the_blaze_demo_website() {
@@ -58,17 +57,9 @@ public class Flight_Booking_E2E_Steps {
     }
 
     @When("I provide personal details")
-    public void i_provide_personal_details(List<Map<String, String>> billingDetails) {
-        pp.enterName(billingDetails.get(0).get("name"));
-        pp.enterAddress(billingDetails.get(0).get("address"));
-        pp.enterCity(billingDetails.get(0).get("city"));
-        pp.enterState(billingDetails.get(0).get("state"));
-        pp.enterZipCode(billingDetails.get(0).get("zipCode"));
-        pp.selectCardType(billingDetails.get(0).get("cardType"));
-        pp.enterCreditCardNumber(billingDetails.get(0).get("creditCardNumber"));
-        pp.enterCreditCardMonth(billingDetails.get(0).get("month"));
-        pp.enterCreditCardYear(billingDetails.get(0).get("year"));
-        pp.enterNameOnCard(billingDetails.get(0).get("nameOnCard"));
+    public void i_provide_personal_details(PurchaseDetails purchaseDetails) {
+        this.purchaseDetails = purchaseDetails;
+        pp.purchaseFlightAfterAddingDetails(purchaseDetails);
     }
 
     @When("I click on Purchase Flight button")
@@ -89,8 +80,9 @@ public class Flight_Booking_E2E_Steps {
     }
 
     @And("I have my personal details as")
-    public void iHaveMyPersonalDetailsAs() {
-
+    public void iHaveMyPersonalDetailsAs(PurchaseDetails personDetails) {
+        pp = new PurchasePage(driver);
+        this.purchaseDetails = personDetails;
     }
 
     @When("I choose the {string} Airline flight for my booking")
@@ -98,6 +90,21 @@ public class Flight_Booking_E2E_Steps {
     }
 
     @And("I provide card details")
-    public void iProvideCardDetails() {
+    public void iProvideCardDetails(PurchaseDetails cardDetails) {
+        this.purchaseDetails = cardDetails;
+        pp.enterCardDetails(cardDetails);
+    }
+
+    @And("I enter my personal details on the page")
+    public void iEnterMyPersonalDetailsOnThePage() {
+        pp.enterMyPersonalDetails(purchaseDetails);
+    }
+
+    @When("I select {cityName}, {cityName} as source and destination city")
+    public void iSelectAsSourceAndDestinationCity(CityDetails src, CityDetails dest) {
+        hp.selectFromPort(src.getCity());
+        hp.selectToPort(dest.getCity());
+        System.out.println("Source City: " + src.getCity());
+        System.out.println("Destination City: " + dest.getCity());
     }
 }

@@ -1,5 +1,6 @@
 package pageObjects;
 
+import domainObjects.PurchaseDetails;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -94,5 +95,34 @@ public class PurchasePage extends BasePage {
 
     public String getPageHeading() {
         return wait.until(ExpectedConditions.visibilityOf(pageHeading)).getText();
+    }
+
+    public void purchaseFlightAfterAddingDetails(PurchaseDetails purchaseDetails) {
+        enterName(purchaseDetails.getName());
+        enterAddress(purchaseDetails.getAddress());
+        enterCity(purchaseDetails.getCity());
+        enterState(purchaseDetails.getState());
+        enterZipCode(purchaseDetails.getZipCode());
+        selectCardType(purchaseDetails.getCardType());
+        enterCreditCardNumber(purchaseDetails.getCardNumber());
+        enterCreditCardMonth(purchaseDetails.getCardMonth());
+        enterCreditCardYear(purchaseDetails.getCardYear());
+        enterNameOnCard(purchaseDetails.getNameOnCard());
+    }
+
+    public void enterMyPersonalDetails(PurchaseDetails personalDetails) {
+        enterName(personalDetails.getName());
+        enterAddress(personalDetails.getAddress());
+        enterCity(personalDetails.getCity());
+        enterState(personalDetails.getState());
+        enterZipCode(personalDetails.getZipCode());
+    }
+
+    public void enterCardDetails(PurchaseDetails cardDetails) {
+        selectCardType(cardDetails.getCardType());
+        enterCreditCardNumber(cardDetails.getCardNumber());
+        enterCreditCardMonth(cardDetails.getCardMonth());
+        enterCreditCardYear(cardDetails.getCardYear());
+        enterNameOnCard(cardDetails.getNameOnCard());
     }
 }
