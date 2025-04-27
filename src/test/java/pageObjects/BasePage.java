@@ -29,4 +29,8 @@ public class BasePage {
         driver.get(ConfigLoader.getInstance().getBaseUrl() + endPoint);
     }
 
+    public void load() {
+        driver.get(ConfigLoader.getInstance().getBaseUrl());
+    }
+
 }

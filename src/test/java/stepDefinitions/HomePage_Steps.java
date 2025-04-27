@@ -6,7 +6,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
-import utils.ConfigLoader;
 
 public class HomePage_Steps {
     private WebDriver driver;
@@ -16,7 +15,7 @@ public class HomePage_Steps {
     public void i_am_on_the_homepage_of_the_blaze_demo_website() {
         driver = DriverFactory.getDriver();
         hp = new HomePage(driver);
-        hp.load(ConfigLoader.getInstance().getBaseUrl());
+        hp.load();
     }
 
     @When("I click on the {string} link")
