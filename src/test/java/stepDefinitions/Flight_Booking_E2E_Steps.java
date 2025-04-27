@@ -87,4 +87,17 @@ public class Flight_Booking_E2E_Steps {
         String pID = cp.getPurchaseID();
         System.out.println(pID);
     }
+
+    @And("I have my personal details as")
+    public void iHaveMyPersonalDetailsAs() {
+
+    }
+
+    @When("I choose the {string} Airline flight for my booking")
+    public void iChooseTheAirlineFlightForMyBooking(String arg0) {
+    }
+
+    @And("I provide card details")
+    public void iProvideCardDetails() {
+    }
 }
