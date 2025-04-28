@@ -22,4 +22,8 @@ public class ConfigLoader {
         if (prop != null) return prop;
         else throw new RuntimeException("property baseURL is not specified in the config.properties file");
     }
+
+    public String getImplicitWaitTime() {
+        return properties.getProperty("implicitWait");
+    }
 }

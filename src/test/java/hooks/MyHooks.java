@@ -9,12 +9,12 @@ public class MyHooks {
     private WebDriver driver;
 
     @Before
-    public void setup(){
-        driver = DriverFactory.initializeDriver();
+    public void setup() {
+        driver = DriverFactory.initializeDriver(System.getProperty("browser", "chrome"));
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }
