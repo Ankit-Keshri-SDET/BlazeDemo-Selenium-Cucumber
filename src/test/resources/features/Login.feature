@@ -8,10 +8,10 @@ Feature: Login Feature
     When User enter email and password as "<username>" and "<password>"
     And User click on Remember Me checkbox
     And User click on Login button
-    Then User should be navigated to the Account page of Login
+    Then User should be navigated to the Account page of "<current_Scenario>"
     And "<Success_Message>" should be displayed
 
     Examples:
-      | username       | password  | Success_Message |
-      | xyaz@gmail.com | random123 | Page Expired    |
+      | username       | password  | Success_Message | current_Scenario |
+      | xyaz@gmail.com | random123 | Page Expired    | Login            |
 

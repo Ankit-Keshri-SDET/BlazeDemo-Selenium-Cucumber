@@ -11,18 +11,19 @@ import utils.ConfigLoader;
 public class AccountPage_Steps {
     private WebDriver driver = DriverFactory.getDriver();
 
-    @Then("User should be navigated to the Account page of Login")
-    public void user_should_be_navigated_to_the_account_page_of_login() {
-        String actualUrl = driver.getCurrentUrl();
-        String expectedUrl = ConfigLoader.getInstance().getBaseUrl() + Endpoint.LOGIN.url;
-        Assert.assertEquals(actualUrl, expectedUrl);
-    }
-
-    @Then("User should be navigated to the Account page of Register")
-    public void user_should_be_navigated_to_the_account_page_of_register() {
-        String actualUrl = driver.getCurrentUrl();
-        String expectedUrl = ConfigLoader.getInstance().getBaseUrl() + Endpoint.REGISTER.url;
-        Assert.assertEquals(actualUrl, expectedUrl);
+    @Then("User should be navigated to the Account page of {string}")
+    public void user_should_be_navigated_to_the_account_page_of_login(String scenario) {
+        if (scenario.equalsIgnoreCase("Login")) {
+            String actualUrl = driver.getCurrentUrl();
+            String expectedUrl = ConfigLoader.getInstance().getBaseUrl() + Endpoint.LOGIN.url;
+            Assert.assertEquals(actualUrl, expectedUrl);
+        } else if (scenario.equalsIgnoreCase("Register")) {
+            String actualUrl = driver.getCurrentUrl();
+            String expectedUrl = ConfigLoader.getInstance().getBaseUrl() + Endpoint.REGISTER.url;
+            Assert.assertEquals(actualUrl, expectedUrl);
+        } else {
+            throw new IllegalStateException("Wrong scenario name listed ...");
+        }
     }
 
     @Then("{string} should be displayed")
