@@ -2,9 +2,11 @@ package runner;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/resources/features"},
+        features = {"src/test/resources/features/E2E_Parallel.feature",
+                    "src/test/resources/features/Destination.feature"},
         glue = {"stepDefinitions", "hooks", "factory", "customeType", "domainObjects"},
         plugin = {
                 "html:target/cucumber-reports/cucumber.html",
@@ -14,4 +16,9 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true
 )
 public class MyTestNGRunnerTest extends AbstractTestNGCucumberTests {
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
 }

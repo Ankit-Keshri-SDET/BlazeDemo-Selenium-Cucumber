@@ -1,7 +1,6 @@
 package utils;
 
 import contants.EnvType;
-
 import java.util.Properties;
 
 public class ConfigLoader {
@@ -22,7 +21,6 @@ public class ConfigLoader {
                 break;
             default:
                 throw new IllegalStateException("INVALID Environment Type .. " + env);
-
         }
     }
 
