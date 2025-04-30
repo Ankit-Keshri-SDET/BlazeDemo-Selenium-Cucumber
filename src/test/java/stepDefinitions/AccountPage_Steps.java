@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 import contants.Endpoint;
-import factory.DriverFactory;
+import context.TestContext;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -9,7 +9,11 @@ import pageObjects.AccountPage;
 import utils.ConfigLoader;
 
 public class AccountPage_Steps {
-    private WebDriver driver = DriverFactory.getDriver();
+    private final WebDriver driver;
+
+    public AccountPage_Steps(TestContext context) {
+        driver = context.driver;
+    }
 
     @Then("User should be navigated to the Account page of {string}")
     public void user_should_be_navigated_to_the_account_page_of_login(String scenario) {

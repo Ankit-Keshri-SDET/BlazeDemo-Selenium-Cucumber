@@ -1,19 +1,22 @@
 package stepDefinitions;
 
+import context.TestContext;
 import domainObjects.CityDetails;
-import factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 
 public class HomePage_Steps {
-    private WebDriver driver;
+    private final WebDriver driver;
     private HomePage hp;
+
+    public HomePage_Steps(TestContext context) {
+        driver = context.driver;
+    }
 
     @Given("I am on the homepage of the BlazeDemo website")
     public void i_am_on_the_homepage_of_the_blaze_demo_website() {
-        driver = DriverFactory.getDriver();
         hp = new HomePage(driver);
         hp.load();
     }

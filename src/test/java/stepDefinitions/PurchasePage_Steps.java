@@ -1,7 +1,7 @@
 package stepDefinitions;
 
+import context.TestContext;
 import domainObjects.PurchaseDetails;
-import factory.DriverFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,13 +10,16 @@ import org.testng.Assert;
 import pageObjects.PurchasePage;
 
 public class PurchasePage_Steps {
-    private WebDriver driver;
+    private final WebDriver driver;
     private PurchasePage pp;
     private PurchaseDetails purchaseDetails;
 
+    public PurchasePage_Steps(TestContext context) {
+        driver = context.driver;
+    }
+
     @Then("I should verify the {string} on the page")
     public void iShouldVerifyTheOnThePage(String purchasePageHeadingText) {
-        driver = DriverFactory.getDriver();
         pp = new PurchasePage(driver);
         Assert.assertTrue(pp.getPageHeading().contains(purchasePageHeadingText));
     }

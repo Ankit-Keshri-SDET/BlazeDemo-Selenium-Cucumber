@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import factory.DriverFactory;
+import context.TestContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
@@ -8,12 +8,15 @@ import org.testng.Assert;
 import pageObjects.ReservePage;
 
 public class ReservePage_Steps {
-    private WebDriver driver;
+    private final WebDriver driver;
     private ReservePage rp;
+
+    public ReservePage_Steps(TestContext context) {
+        driver = context.driver;
+    }
 
     @Then("I should verify the {string}, {string} on the page")
     public void iShouldVerifyTheOnThePage(String fromCity, String toCity) {
-        driver = DriverFactory.getDriver();
         rp = new ReservePage(driver);
         String routeDetail = rp.getFlightRouteDetails();
         Assert.assertTrue(routeDetail.contains(fromCity) && routeDetail.contains(toCity));

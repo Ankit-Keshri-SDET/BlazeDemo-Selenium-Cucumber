@@ -1,17 +1,20 @@
 package stepDefinitions;
 
-import factory.DriverFactory;
+import context.TestContext;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import pageObjects.ForgotPasswordPage;
 
 public class ForgotPasswordPage_Steps {
-    private WebDriver driver;
+    private final WebDriver driver;
     private ForgotPasswordPage fp;
+
+    public ForgotPasswordPage_Steps(TestContext context) {
+        driver = context.driver;
+    }
 
     @When("I provide my {string}")
     public void i_provide_my(String emailAddress) {
-        driver = DriverFactory.getDriver();
         fp = new ForgotPasswordPage(driver);
         fp.enterEmailAddressField(emailAddress);
     }

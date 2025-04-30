@@ -1,13 +1,17 @@
 package stepDefinitions;
 
-import factory.DriverFactory;
+import context.TestContext;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObjects.DestinationPage;
 
 public class DestinationPage_Steps {
-    private WebDriver driver= DriverFactory.getDriver();
+    private final WebDriver driver;
+
+    public DestinationPage_Steps(TestContext context) {
+        driver = context.driver;
+    }
 
     @Then("I should be redirected to the {string}")
     public void i_should_be_redirected_to_the(String url) {
