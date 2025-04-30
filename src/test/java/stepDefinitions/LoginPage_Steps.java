@@ -2,22 +2,20 @@ package stepDefinitions;
 
 import contants.Endpoint;
 import context.TestContext;
+import factory.PageFactoryManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 import pageObjects.LoginPage;
 
 public class LoginPage_Steps {
-    private final WebDriver driver;
-    private LoginPage lp;
+    private final LoginPage lp;
 
-    public LoginPage_Steps(TestContext context){
-        driver = context.driver;
+    public LoginPage_Steps(TestContext context) {
+        lp = PageFactoryManager.getLoginPage(context.driver);
     }
 
     @Given("User am on the Login page")
     public void user_am_on_the_login_page() {
-        lp = new LoginPage(driver);
         lp.load(Endpoint.LOGIN.url);
     }
 

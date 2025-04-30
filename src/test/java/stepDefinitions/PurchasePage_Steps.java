@@ -2,25 +2,21 @@ package stepDefinitions;
 
 import context.TestContext;
 import domainObjects.PurchaseDetails;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+import factory.PageFactoryManager;
+import io.cucumber.java.en.*;
 import org.testng.Assert;
 import pageObjects.PurchasePage;
 
 public class PurchasePage_Steps {
-    private final WebDriver driver;
-    private PurchasePage pp;
+    private final PurchasePage pp;
     private PurchaseDetails purchaseDetails;
 
     public PurchasePage_Steps(TestContext context) {
-        driver = context.driver;
+        pp = PageFactoryManager.getPurchasePage(context.driver);
     }
 
     @Then("I should verify the {string} on the page")
     public void iShouldVerifyTheOnThePage(String purchasePageHeadingText) {
-        pp = new PurchasePage(driver);
         Assert.assertTrue(pp.getPageHeading().contains(purchasePageHeadingText));
     }
 
@@ -37,7 +33,6 @@ public class PurchasePage_Steps {
 
     @And("I have my personal details as")
     public void iHaveMyPersonalDetailsAs(PurchaseDetails personDetails) {
-        pp = new PurchasePage(driver);
         this.purchaseDetails = personDetails;
     }
 

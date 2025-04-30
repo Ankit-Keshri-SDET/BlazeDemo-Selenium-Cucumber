@@ -2,22 +2,19 @@ package stepDefinitions;
 
 import contants.Endpoint;
 import context.TestContext;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+import factory.PageFactoryManager;
+import io.cucumber.java.en.*;
 import pageObjects.RegisterPage;
 
 public class RegisterPage_Steps {
-    private final WebDriver driver;
-    private RegisterPage rp;
+    private final RegisterPage rp;
 
     public RegisterPage_Steps(TestContext context) {
-        driver = context.driver;
+        rp = PageFactoryManager.getRegisterPage(context.driver);
     }
 
     @Given("I am on the Register Page")
     public void i_am_on_the_register_page() {
-        rp = new RegisterPage(driver);
         rp.load(Endpoint.REGISTER.url);
     }
 

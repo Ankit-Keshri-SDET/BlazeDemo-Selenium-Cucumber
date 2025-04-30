@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import contants.Endpoint;
 import context.TestContext;
+import factory.PageFactoryManager;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -10,9 +11,11 @@ import utils.ConfigLoader;
 
 public class AccountPage_Steps {
     private final WebDriver driver;
+    private final AccountPage ap;
 
     public AccountPage_Steps(TestContext context) {
         driver = context.driver;
+        ap = PageFactoryManager.getAccountPage(context.driver);
     }
 
     @Then("User should be navigated to the Account page of {string}")
@@ -32,7 +35,6 @@ public class AccountPage_Steps {
 
     @Then("{string} should be displayed")
     public void should_be_displayed(String successMessage) {
-        AccountPage ap = new AccountPage(driver);
         Assert.assertEquals(ap.getAccountMessage(), successMessage, "Message mismatched ......");
     }
 }

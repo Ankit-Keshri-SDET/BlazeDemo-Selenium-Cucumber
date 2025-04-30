@@ -2,22 +2,19 @@ package stepDefinitions;
 
 import context.TestContext;
 import domainObjects.CityDetails;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+import factory.PageFactoryManager;
+import io.cucumber.java.en.*;
 import pageObjects.HomePage;
 
 public class HomePage_Steps {
-    private final WebDriver driver;
-    private HomePage hp;
+    private final HomePage hp;
 
     public HomePage_Steps(TestContext context) {
-        driver = context.driver;
+        hp = PageFactoryManager.getHomePage(context.driver);
     }
 
     @Given("I am on the homepage of the BlazeDemo website")
     public void i_am_on_the_homepage_of_the_blaze_demo_website() {
-        hp = new HomePage(driver);
         hp.load();
     }
 
@@ -41,7 +38,5 @@ public class HomePage_Steps {
     public void iSelectAsSourceAndDestinationCity(CityDetails src, CityDetails dest) {
         hp.selectFromPort(src.getCity());
         hp.selectToPort(dest.getCity());
-        System.out.println("Source City: " + src.getCity());
-        System.out.println("Destination City: " + dest.getCity());
     }
 }

@@ -2,8 +2,7 @@ package hooks;
 
 import context.TestContext;
 import factory.DriverFactory;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import io.cucumber.java.*;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 

@@ -1,22 +1,20 @@
 package stepDefinitions;
 
 import context.TestContext;
+import factory.PageFactoryManager;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageObjects.ConfirmationPage;
 
 public class ConfirmationPage_Steps {
-    private final WebDriver driver;
-    private ConfirmationPage cp;
+    private final ConfirmationPage cp;
 
     public ConfirmationPage_Steps(TestContext context) {
-        driver = context.driver;
+        cp = PageFactoryManager.getConfirmationPage(context.driver);
     }
 
     @Then("I should see the {string}")
     public void i_should_see_the(String thankyouText) {
-        cp = new ConfirmationPage(driver);
         Assert.assertEquals(cp.getConfirmationText(), thankyouText);
     }
 
