@@ -12,7 +12,6 @@ import org.testng.annotations.DataProvider;
                 "json:target/cucumber.json",
                 "pretty:target/cucumber-reports/cucumber-pretty.txt"
         },
-        tags = "@Regression",
         monochrome = true
 )
 public class MyTestNGRunnerTest extends AbstractTestNGCucumberTests {
