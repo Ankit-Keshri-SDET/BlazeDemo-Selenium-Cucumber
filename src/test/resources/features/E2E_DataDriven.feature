@@ -18,6 +18,7 @@ Feature: Data Driven Testing With Different Source and Destination Cities
       | src         | dest   | Flight_Reserved_Message |
       | Paris       | Rome   | has been reserved       |
       | Portland    | London | has been reserved       |
-
+      | San Diego   | Berlin | has been reserved       |
+      | Mexico City | Cairo  | has been reserved       |
 
 
