@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
         glue = {"stepDefinitions", "hooks", "factory", "customeType", "domainObjects"},
         plugin = {
                 "html:target/cucumber-reports/cucumber.html",
-                "json:target/cucumber-reports/cucumber.json",
+                "json:target/cucumber.json",
                 "pretty:target/cucumber-reports/cucumber-pretty.txt"
         },
         tags = "@Regression",
