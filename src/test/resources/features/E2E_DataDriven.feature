@@ -1,4 +1,3 @@
-@E2E
 Feature: Data Driven Testing With Different Source and Destination Cities
 
   Scenario : TC_001_To Verify user is able to choose flight
