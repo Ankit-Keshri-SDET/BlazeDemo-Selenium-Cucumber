@@ -33,11 +33,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven
 
-      - name: Build and test
-        run: mvn clean test
+      - name: Run Tests and Generate Report
+        run: mvn clean verify
 
-      - name: Upload Report Artifact
+      - name: Upload Cucumber HTML Report
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-html-report
-          path: target/cucumber-html-reports  # Adjust if you use a different path
+          path: target/cucumber-html-reports

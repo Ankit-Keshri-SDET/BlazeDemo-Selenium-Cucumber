@@ -41,12 +41,12 @@
             <artifactId>cucumber-testng</artifactId>
             <version>7.20.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>junit</groupId>-->
-<!--            <artifactId>junit</artifactId>-->
-<!--            <version>4.13.2</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--            <artifactId>junit</artifactId>-->
+        <!--            <version>4.13.2</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
@@ -83,24 +83,17 @@
                 <version>5.8.1</version>
                 <executions>
                     <execution>
-                        <id>execution</id>
-                        <phase>test</phase>
+                        <id>generate-cucumber-report</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
                             <projectName>Selenium-Cucumber-Ecomm-Project</projectName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <inputDirectory>${project.build.directory}/</inputDirectory>
+                            <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
                             <jsonFiles>
-                                <param>**/*.json</param>
+                                <param>${project.build.directory}/cucumber-reports/cucumber.json</param>
                             </jsonFiles>
-                            <classificationDirectory>${project.build.directory}/</classificationDirectory>
-                            <classificationFiles>
-                                <!-- supports wildcard or name pattern -->
-                                <param>sample.properties</param>
-                                <param>other.properties</param>
-                            </classificationFiles>
                             <checkBuildResult>false</checkBuildResult>
                         </configuration>
                     </execution>
