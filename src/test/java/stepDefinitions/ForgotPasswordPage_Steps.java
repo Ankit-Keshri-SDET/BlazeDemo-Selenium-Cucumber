@@ -21,9 +21,4 @@ public class ForgotPasswordPage_Steps {
     public void i_click_on_send_button() {
         fp.clickOnSubmitBtn();
     }
-
-    @Then("I should recover my password")
-    public void i_should_recover_my_password() {
-        System.out.println("Password Receovered ..");
-    }
 }

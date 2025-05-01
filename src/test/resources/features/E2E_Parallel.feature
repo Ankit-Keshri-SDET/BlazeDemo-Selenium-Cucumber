@@ -1,5 +1,7 @@
 Feature: E2E Test case leveraging Parallel Execution
 
+
+  @Regression
   Scenario Outline: TC_001_To Verify Parallel Execution Scenario is successfully triggered in desired browser
     Given I am on the homepage of the BlazeDemo website
     When I select the "<departure_city>", "<destination_city>" from dropdown

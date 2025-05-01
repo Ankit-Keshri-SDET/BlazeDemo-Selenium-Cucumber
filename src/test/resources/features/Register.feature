@@ -1,5 +1,6 @@
 Feature: Register to the Website to become a customer
 
+  @Smoke
   Scenario Outline: TC_001_To Verify User is able to register to the Website
     Given I am on the Register Page
     When I enter my "<name>", "<company>", "<email>"

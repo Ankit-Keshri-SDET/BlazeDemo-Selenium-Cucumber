@@ -9,7 +9,7 @@ import pageObjects.DestinationPage;
 
 public class DestinationPage_Steps {
     private final WebDriver driver;
-    private DestinationPage dp;
+    private final DestinationPage dp;
 
     public DestinationPage_Steps(TestContext context) {
         driver = context.driver;

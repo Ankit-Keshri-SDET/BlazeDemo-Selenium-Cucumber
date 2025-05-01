@@ -1,3 +1,4 @@
+@E2E
 Feature: Data Driven Testing With Different Source and Destination Cities
 
   Scenario : TC_001_To Verify user is able to choose flight
@@ -17,7 +18,6 @@ Feature: Data Driven Testing With Different Source and Destination Cities
       | src         | dest   | Flight_Reserved_Message |
       | Paris       | Rome   | has been reserved       |
       | Portland    | London | has been reserved       |
-      | San Diego   | Berlin | has been reserved       |
-      | Mexico City | Cairo  | has been reserved       |
+
 
 

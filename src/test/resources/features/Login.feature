@@ -3,6 +3,7 @@ Feature: Login Feature
   I want to login into my account
   So that I can book flight
 
+  @Smoke
   Scenario Outline: TC_001_To Verify User is able to login
     Given User am on the Login page
     When User enter email and password as "<username>" and "<password>"

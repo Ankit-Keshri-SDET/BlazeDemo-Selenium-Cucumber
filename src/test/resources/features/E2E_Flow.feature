@@ -1,3 +1,4 @@
+@Regression
 Feature: E2E Flight Booking as Logged In user
 
   Scenario Outline: TC_001_To Verify User is able to book flight on the website

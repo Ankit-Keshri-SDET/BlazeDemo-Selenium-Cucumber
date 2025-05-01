@@ -6,7 +6,6 @@ Feature: Forgot Password Feature
     And I provide my "<emailAddress>"
     And I click on Send button
     Then "<Recovery_Message>" should be displayed
-    And I should recover my password
 
     Examples:
       | emailAddress        | Recovery_Message |
