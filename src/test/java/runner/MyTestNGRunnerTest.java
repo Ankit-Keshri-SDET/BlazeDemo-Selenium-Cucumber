@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/resources/features/E2E_DataDriven.feature"},
+        features = {"src/test/resources/features/Destination.feature"},
         glue = {"stepDefinitions", "hooks", "factory", "customeType", "domainObjects"},
         plugin = {
                 "html:target/cucumber-reports/cucumber.html",
